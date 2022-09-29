@@ -25,5 +25,5 @@ Quality = {
 Item = {
     {"nyalong.mp3", {"Small Dream Shard"}},
     {"Nya! arigato.wav", {"Frostweave Cloth", "Infinite Dust"}},
-    {nil, { "Lesser Cosmic Essence"}},
+    {nil, {"Lesser Cosmic Essence"}}
 };

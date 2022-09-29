@@ -34,7 +34,7 @@ function ItemFilter()
             bestSound = Item[bestRule][1]
         end
 
-        message(BasePath..bestSound)
+        message(bestQuality)
         if bestSound ~= "" then
             PlaySoundFile(BasePath..bestSound);
         end
