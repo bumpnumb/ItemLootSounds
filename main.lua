@@ -70,13 +70,31 @@ scrollChild:SetHeight(1);
 -- title:SetPoint("TOPLEFT")
 -- title:SetText("Rule")
 
-local eb = CreateFrame("EditBox", nil, scrollFrame);
-eb:SetWidth(300);
-eb:SetHeight(40);
-eb:SetText("Anus");
-eb:SetMultiLine(false);
-eb:SetAutoFocus(false);
-scrollFrame:SetScrollChild(eb);
+-- local eb = CreateFrame("EditBox", nil, scrollFrame);
+-- eb:SetWidth(300);
+-- eb:SetHeight(40);
+-- eb:SetText("Anus");
+-- eb:SetMultiLine(false);
+-- eb:SetAutoFocus(false);
+-- scrollFrame:SetScrollChild(eb);
+
+
+
+local e = CreateFrame("EditBox", "a box", scrollFrame)
+e:SetPoint("TOPLEFT")
+e:SetBackdrop({
+        bgFile = "",
+        edgeFile = "Interface\\Tooltips\\UI-Tooltip-Border",
+        tile = "true",
+        tileSize = 32,
+        edgeSize = 10,
+        insets = {left = 3, right = 3, top = 3, bottom = 3}
+    })
+e:SetFontObject("GameFontNormalSmall")
+e:SetTextInsets(5,0,0,0)
+e:IsMultiLine(false)
+e:SetAutoFocus(false)
+e:SetScript("OnEscapePressed", e.ClearFocus)
 -- editbox:SetScipt("OnEnterPressed", function(self)
 -- 	self:ClearFocus();
 --     message(self.GetText());
