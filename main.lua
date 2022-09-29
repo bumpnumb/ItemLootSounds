@@ -1,13 +1,15 @@
+require("config")
+
 local delay = 0
 local DEBOUNCE_INTERVAL = 0.3
 
 function ItemFilter()
     if GetTime() - delay >= DEBOUNCE_INTERVAL then
         delay = GetTime()
-        info = GetLootInfo();
+        local info = GetLootInfo();
 
         local bestQuality = 0;
-        local bestRule = -1;
+        local bestRule = 0;
         local bestSound = "";
         
         for i = 1, #info do
@@ -26,7 +28,7 @@ function ItemFilter()
         end
 
 
-        if bestRule == -1 then
+        if bestRule == 0 then
             bestSound = Quality[bestQuality];
         else
             bestSound = Item[bestRule][1]
