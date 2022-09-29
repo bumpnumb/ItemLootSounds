@@ -32,6 +32,7 @@ function ItemFilter()
             bestSound = Item[bestRule][1]
         end
 
+        message(BasePath..bestSound)
         if bestSound ~= "" then
             PlaySoundFile(BasePath..bestSound);
         end
