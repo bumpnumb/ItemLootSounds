@@ -52,6 +52,7 @@ function ItemFilter()
 
         local bestSound = BasePath..QualityRules[bestQuality];
         -- bestSound = ItemRules[bestRule][1];
+        message(bestSound)
         PlaySoundFile(bestSound)
 
         -- if bestSound ~= "" then
