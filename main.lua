@@ -16,16 +16,16 @@ QualityRules = {
     "Wow.mp3",
     "nyalong.mp3",
     "Nani.mp3",
-    nil,
-    nil,
-    nil,
-    nil
+    "",
+    "",
+    "",
+    ""
 };
 
 ItemRules = {
     {"nyalong.mp3", {"Small Dream Shard"}},
     {"Nya! arigato.wav", {"Frostweave Cloth", "Infinite Dust"}},
-    {nil, {"Lesser Cosmic Essence"}}
+    {"", {"Lesser Cosmic Essence"}}
 };
 
 
@@ -47,22 +47,12 @@ function ItemFilter()
             if itemInfo.quality + 1 > bestQuality then
                 bestQuality = itemInfo.quality + 1;
             end
-            
-            for rule = 1, #ItemRules do
-                for itemName = 1, #ItemRules[2] do
-                    if itemInfo.item == ItemRules[rule][2][itemName] then
-                        bestRule = rule;
-                    end
-                end
-            end
         end
 
 
-        if bestRule == 0 then
-            bestSound = QualityRules[bestQuality];
-        else
-            bestSound = ItemRules[bestRule][1];
-        end
+
+        bestSound = ItemRules[bestRule][1];
+
 
         if bestSound ~= "" then
             -- PlaySoundFile(BasePath..bestSound);
