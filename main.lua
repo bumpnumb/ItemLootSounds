@@ -11,7 +11,7 @@ BasePath = "Interface\\Addons\\ItemFilter\\Sounds\\";
 -- 8 	WoWToken 	WoW Token 	
 
 QualityRules = {
-    "nya.wav",
+    "tuturu.mp3",
     "tuturu.mp3",
     "Wow.mp3",
     "nyalong.mp3",
@@ -24,7 +24,7 @@ QualityRules = {
 
 ItemRules = {
     {"nyalong.mp3", {"Small Dream Shard"}},
-    {"Nya! arigato.wav", {"Frostweave Cloth", "Infinite Dust"}},
+    {"tuturu.mp3", {"Frostweave Cloth", "Infinite Dust"}},
     {"", {"Lesser Cosmic Essence"}}
 };
 
