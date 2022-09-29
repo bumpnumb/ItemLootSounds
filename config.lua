@@ -10,7 +10,7 @@ BasePath = "Interface\\Addons\\ItemFilter\\Sounds\\"
 -- 7 	Heirloom 	Heirloom 	
 -- 8 	WoWToken 	WoW Token 	
 
-Quality = {
+QualityRules = {
     "nya.wav",
     "tuturu.mp3",
     "Wow.mp3",
@@ -22,7 +22,7 @@ Quality = {
     nil
 };
 
-Item = {
+ItemRules = {
     {"nyalong.mp3", {"Small Dream Shard"}},
     {"Nya! arigato.wav", {"Frostweave Cloth", "Infinite Dust"}},
     {nil, {"Lesser Cosmic Essence"}}

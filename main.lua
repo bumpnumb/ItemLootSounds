@@ -1,4 +1,4 @@
-BasePath = "Interface\\Addons\\ItemFilter\\Sounds\\"
+BasePath = "Interface\\Addons\\ItemFilter\\Sounds\\";
 
 -- 0 	Poor 	    Poor 	
 -- 1 	Common 	    Common 
@@ -27,6 +27,9 @@ ItemRules = {
     {"Nya! arigato.wav", {"Frostweave Cloth", "Infinite Dust"}},
     {nil, {"Lesser Cosmic Essence"}}
 };
+
+
+
 local delay = 0
 local DEBOUNCE_INTERVAL = 0.3
 
@@ -41,8 +44,8 @@ function ItemFilter()
         
         for i = 1, #info do
             local itemInfo = info[i];
-            if itemInfo.quality < bestQuality then
-                bestQuality = itemInfo.quality;
+            if itemInfo.quality + 1 > bestQuality then
+                bestQuality = itemInfo.quality + 1;
             end
             
             for rule = 1, #ItemRules do
