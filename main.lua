@@ -65,14 +65,15 @@ scrollFrame:SetScrollChild(scrollChild)
 scrollChild:SetWidth(InterfaceOptionsFramePanelContainer:GetWidth()-18)
 scrollChild:SetHeight(1);
 
--- Add widgets to the scrolling child frame as desired
-local title = scrollChild:CreateFontString("ARTWORK", nil, "GameFontNormalLarge")
-title:SetPoint("TOPLEFT")
-title:SetText("Rule")
+-- -- Add widgets to the scrolling child frame as desired
+-- local title = scrollChild:CreateFontString("ARTWORK", nil, "GameFontNormalLarge")
+-- title:SetPoint("TOPLEFT")
+-- title:SetText("Rule")
 
 local editbox = CreateFrame("EditBox", nil, scrollFrame)
 editbox:SetPoint("TOPLEFT")
 editbox:SetWidth(300)
+editbox:SetFontObject(ChatFontNormal)
 editbox:SetMultiLine(false)
 editbox:SetAutoFocus(false)
 scrollFrame:SetScrollChild(editbox)
