@@ -10,7 +10,7 @@ BasePath = "Interface\\Addons\\ItemFilter\\Sounds\\"
 -- 7 	Heirloom 	Heirloom 	
 -- 8 	WoWToken 	WoW Token 	
 
-Quality = {
+QualityRules = {
     "nya.wav",
     "tuturu.mp3",
     "Wow.mp3",
@@ -22,7 +22,7 @@ Quality = {
     nil
 };
 
-Item = {
+ItemRules = {
     {"nyalong.mp3", {"Small Dream Shard"}},
     {"Nya! arigato.wav", {"Frostweave Cloth", "Infinite Dust"}},
     {nil, {"Lesser Cosmic Essence"}}
@@ -45,9 +45,9 @@ function ItemFilter()
                 bestQuality = itemInfo.quality;
             end
             
-            for rule = 1, #Item do
-                for itemName = 1, #Item[2] do
-                    if itemInfo.item == Item[rule][2][itemName] then
+            for rule = 1, #ItemRules do
+                for itemName = 1, #ItemRules[2] do
+                    if itemInfo.item == ItemRules[rule][2][itemName] then
                         bestRule = rule;
                     end
                 end
@@ -56,9 +56,9 @@ function ItemFilter()
 
 
         if bestRule == 0 then
-            bestSound = Quality[bestQuality];
+            bestSound = QualityRules[bestQuality];
         else
-            bestSound = Item[bestRule][1];
+            bestSound = ItemRules[bestRule][1];
         end
 
         if bestSound ~= "" then
