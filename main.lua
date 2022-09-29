@@ -19,8 +19,8 @@ function ItemFilter()
             end
             
             for rule=1, #Item do
-                for item=1, #Item[2] do
-                    if itemInfo.item == Item[rule][2][item] then
+                for itemName=1, #Item[2] do
+                    if itemInfo.item == Item[rule][2][itemName] then
                         bestRule = rule;
                     end
                 end
