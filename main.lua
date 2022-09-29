@@ -1,4 +1,4 @@
-BasePath = "Interface\\Addons\\ItemFilter\\Sounds\\";
+BasePath = "Interface\\Addons\\ItemLootSounds\\Sounds\\";
 
 -- 0 	Poor 	    Poor 	
 -- 1 	Common 	    Common 
@@ -52,7 +52,7 @@ function ItemFilter()
 
         local bestSound = BasePath..QualityRules[bestQuality];
         -- bestSound = ItemRules[bestRule][1];
-        message(bestSound)
+        -- message(bestSound)
         PlaySoundFile(bestSound)
 
         -- if bestSound ~= "" then
