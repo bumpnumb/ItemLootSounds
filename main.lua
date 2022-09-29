@@ -51,7 +51,7 @@ itemFilter:SetScript("OnEvent", ItemFilter)
 
 
 local panel = CreateFrame("Frame")
-panel.name = "ItemFilter"
+panel.name = "--------ItemLootSounds"
 InterfaceOptions_AddCategory(panel)
 
 -- Create the scrolling parent frame and size it to fit inside the texture
@@ -70,13 +70,13 @@ scrollChild:SetHeight(1);
 -- title:SetPoint("TOPLEFT")
 -- title:SetText("Rule")
 
-local editbox = CreateFrame("EditBox", nil, scrollFrame)
-editbox:SetPoint("TOPLEFT")
-editbox:SetWidth(300)
-editbox:SetFontObject(ChatFontNormal)
-editbox:SetMultiLine(false)
-editbox:SetAutoFocus(false)
-scrollFrame:SetScrollChild(editbox)
+local eb = CreateFrame("EditBox", nil, scrollFrame);
+eb:SetWidth(300);
+eb:SetHeight(40);
+eb:SetText("Anus");
+eb:SetMultiLine(false);
+eb:SetAutoFocus(false);
+scrollFrame:SetScrollChild(eb);
 -- editbox:SetScipt("OnEnterPressed", function(self)
 -- 	self:ClearFocus();
 --     message(self.GetText());
