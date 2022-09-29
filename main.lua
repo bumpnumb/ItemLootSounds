@@ -39,25 +39,26 @@ function ItemFilter()
         local info = GetLootInfo();
 
         local bestQuality = 0;
-        local bestRule = 0;
-        local bestSound = "";
         
         for i = 1, #info do
             local itemInfo = info[i];
-            if itemInfo.quality + 1 > bestQuality then
-                bestQuality = itemInfo.quality + 1;
+            local itemQuality = itemInfo.quality + 1;
+            if itemQuality > bestQuality then
+                bestQuality = itemQuality;
             end
         end
 
 
-        bestSound = QualityRules[bestQuality];
+        message(tostring(bestQuality));
+
+        -- bestSound = QualityRules[bestQuality];
         -- bestSound = ItemRules[bestRule][1];
 
 
-        if bestSound ~= "" then
-            -- PlaySoundFile(BasePath..bestSound);
-            PlaySoundFile("Interface\\Addons\\ItemFilter\\Sounds\\".."nya.wav")
-        end
+        -- if bestSound ~= "" then
+        --     -- PlaySoundFile(BasePath..bestSound);
+        --     PlaySoundFile("Interface\\Addons\\ItemFilter\\Sounds\\".."nya.wav")
+        -- end
     end
 end
 
