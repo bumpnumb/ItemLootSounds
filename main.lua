@@ -11,7 +11,7 @@ local function read_file(path)
     return content
 end
 
-local fileContent = read_file("config.txt");
+local fileContent = read_file("Interface\\Addons\\ItemFilter\\config.txt");
 message(fileContent);
 
 function ItemFilter()
