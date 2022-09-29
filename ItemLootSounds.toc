@@ -1,5 +1,5 @@
 ## Interface: 30400
-## Title: ItemFilterSounds
+## Title: ItemLootSounds
 ## Author: Daniel Fennhagen
 ## Version: 0.1
 
