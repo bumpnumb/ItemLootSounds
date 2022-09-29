@@ -50,8 +50,8 @@ function ItemFilter()
         end
 
 
-
-        bestSound = ItemRules[bestRule][1];
+        bestSound = QualityRules[bestQuality];
+        -- bestSound = ItemRules[bestRule][1];
 
 
         if bestSound ~= "" then
