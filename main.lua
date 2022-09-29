@@ -1,8 +1,18 @@
 -- Time delay
 local delay = 0
 local DEBOUNCE_INTERVAL = 0.3
+local open = io.open
 
+local function read_file(path)
+    local file = open(path, "rb") -- r read mode and b binary mode
+    if not file then return nil end
+    local content = file:read "*a" -- *a or *all reads the whole file
+    file:close()
+    return content
+end
 
+local fileContent = read_file("config.txt");
+message(fileContent);
 
 function ItemFilter()
     if GetTime() - delay >= DEBOUNCE_INTERVAL then
@@ -50,58 +60,3 @@ itemFilter:RegisterEvent("Loot_Ready")
 itemFilter:SetScript("OnEvent", ItemFilter)
 
 
-local panel = CreateFrame("Frame")
-panel.name = "--------ItemLootSounds"
-InterfaceOptions_AddCategory(panel)
-
--- Create the scrolling parent frame and size it to fit inside the texture
-local scrollFrame = CreateFrame("ScrollFrame", nil, panel, "UIPanelScrollFrameTemplate")
-scrollFrame:SetPoint("TOPLEFT", 3, -4)
-scrollFrame:SetPoint("BOTTOMRIGHT", -27, 4)
-
--- Create the scrolling child frame, set its width to fit, and give it an arbitrary minimum height (such as 1)
-local scrollChild = CreateFrame("Frame")
-scrollFrame:SetScrollChild(scrollChild)
-scrollChild:SetWidth(InterfaceOptionsFramePanelContainer:GetWidth()-18)
-scrollChild:SetHeight(1);
-
--- -- Add widgets to the scrolling child frame as desired
--- local title = scrollChild:CreateFontString("ARTWORK", nil, "GameFontNormalLarge")
--- title:SetPoint("TOPLEFT")
--- title:SetText("Rule")
-
--- local eb = CreateFrame("EditBox", nil, scrollFrame);
--- eb:SetWidth(300);
--- eb:SetHeight(40);
--- eb:SetText("Anus");
--- eb:SetMultiLine(false);
--- eb:SetAutoFocus(false);
--- scrollFrame:SetScrollChild(eb);
-
-
-
-local e = CreateFrame("EditBox", "a box", scrollFrame)
-e:SetPoint("TOPLEFT")
-e:SetBackdrop({
-        bgFile = "",
-        edgeFile = "Interface\\Tooltips\\UI-Tooltip-Border",
-        tile = "true",
-        tileSize = 32,
-        edgeSize = 10,
-        insets = {left = 3, right = 3, top = 3, bottom = 3}
-    })
-e:SetFontObject("GameFontNormalSmall")
-e:SetTextInsets(5,0,0,0)
-e:IsMultiLine(false)
-e:SetAutoFocus(false)
-e:SetScript("OnEscapePressed", e.ClearFocus)
--- editbox:SetScipt("OnEnterPressed", function(self)
--- 	self:ClearFocus();
---     message(self.GetText());
--- end)
-
-
-
--- local footer = scrollChild:CreateFontString("ARTWORK", nil, "GameFontNormal")
--- footer:SetPoint("TOP", 0, -5000)
--- footer:SetText("This is 5000 below the top, so the scrollChild automatically expanded.")
