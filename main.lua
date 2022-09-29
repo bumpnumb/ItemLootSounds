@@ -31,12 +31,12 @@ function ItemFilter()
         if bestRule == 0 then
             bestSound = Quality[bestQuality];
         else
-            bestSound = Item[bestRule][1]
+            bestSound = Item[bestRule][1];
         end
 
-        message(bestQuality)
         if bestSound ~= "" then
-            PlaySoundFile(BasePath..bestSound);
+            -- PlaySoundFile(BasePath..bestSound);
+            PlaySoundFile("Interface\\Addons\\ItemFilter\\Sounds\\".."nya.wav")
         end
     end
 end
