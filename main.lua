@@ -49,9 +49,9 @@ function ItemFilter()
         end
 
 
-        message(tostring(bestQuality));
 
-        -- bestSound = QualityRules[bestQuality];
+        local bestSound = BasePath..QualityRules[bestQuality];
+        message(bestSound);
         -- bestSound = ItemRules[bestRule][1];
 
 
