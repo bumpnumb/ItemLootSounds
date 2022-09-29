@@ -1,4 +1,4 @@
-BasePath = "Interface\\Addons\\ItemFilter\\Sounds\\";
+BasePath = "Interface\\\Addons\\\ItemFilter\\\Sounds\\\";
 
 -- 0 	Poor 	    Poor 	
 -- 1 	Common 	    Common 
