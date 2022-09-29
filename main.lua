@@ -23,7 +23,7 @@ QualityRules = {
 };
 
 ItemRules = {
-    {"nyalong.mp3", {"Small Dream Shard"}},
+    {"nya.wav", {"Small Dream Shard"}},
     {"tuturu.mp3", {"Frostweave Cloth", "Infinite Dust"}},
     {"", {"Lesser Cosmic Essence"}}
 };
