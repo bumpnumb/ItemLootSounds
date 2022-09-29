@@ -1,4 +1,4 @@
-BasePath = "Interface\\Addons\\ItemFilter\\Sounds\\"
+BasePath = "Interface\\Addons\\ItemLootSounds\\Sounds\\";
 
 -- 0 	Poor 	    Poor 	
 -- 1 	Common 	    Common 
@@ -11,19 +11,30 @@ BasePath = "Interface\\Addons\\ItemFilter\\Sounds\\"
 -- 8 	WoWToken 	WoW Token 	
 
 QualityRules = {
-    "nya.wav",
+    "tuturu.mp3",
     "tuturu.mp3",
     "Wow.mp3",
     "nyalong.mp3",
     "Nani.mp3",
-    nil,
-    nil,
-    nil,
-    nil
+    "",
+    "",
+    "",
+    ""
 };
 
+
+-- {"Sound file (.wav, .mp3, .ogg)", {Comma separated list of item names}}
+-- Sould rules take priority in descending order meaning:
+
+-- {"nya.wav", {"Small Dream Shard"}},
+-- {"tuturu.mp3", {"Frostweave Cloth", "Small Dream Shard"}},
+
+-- "Small Dream Shard" will get "tuturu.mp3" sound
+
+-- ItemRules always takes priority over QualityRules
+
 ItemRules = {
-    {"nyalong.mp3", {"Small Dream Shard"}},
-    {"Nya! arigato.wav", {"Frostweave Cloth", "Infinite Dust"}},
-    {nil, {"Lesser Cosmic Essence"}}
+    {"nya.wav", {"Small Dream Shard"}},
+    {"tuturu.mp3", {"Frostweave Cloth", "Infinite Dust"}},
+    {"", {"Lesser Cosmic Essence"}}
 };
