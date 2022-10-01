@@ -119,7 +119,7 @@ function PlayLootSound()
 end
 
 
-function PlayRollSound(self, id)
+function PlayRollSound(id)
     -- delay can be global, lets not spam audio
     if GetTime() - delay >= DEBOUNCE_INTERVAL then
         delay = GetTime()
@@ -177,5 +177,16 @@ eventFilter:SetScript("OnEvent", function(self, event)
     PlayEventSound(event);
 end);
 
+-- local interfaceLoader = CreateFrame("Frame")
+-- interfaceLoader:RegisterEvent("ADDON_LOADED")
+-- interfaceLoader:SetScript("OnEvent", InitializeOptions)
+
+-- function interfaceLoader:InitializeOptions()
+--     self.panel = CreateFrame("Frame")
+--     self.panel.name = "ItemLootSounds"
+
+
+--     InterfaceOptions_AddCategory(self.panel)
+-- end
 
 
