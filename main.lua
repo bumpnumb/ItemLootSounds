@@ -16,7 +16,7 @@ QualityRules = {
     "green_item.mp3",
     "blue_item.mp3",
     "woo_epic.mp3",
-    "legendaryyyy.mp3",
+    "markus_droppa_byxorna.mp3",
     "nyalong.mp3",
     "nyalong.mp3",
     "nyalong.mp3"
