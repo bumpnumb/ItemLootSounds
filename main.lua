@@ -170,7 +170,7 @@ for i = 1, #EventRules do
     eventFilter:RegisterEvent(EventRules[i][2]);
 end
 eventFilter:SetScript("OnEvent", function(self, event)
-    PlayEventSound(event)
+    PlayEventSound(event);
 end);
 
 
