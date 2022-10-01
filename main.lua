@@ -43,6 +43,11 @@ ItemRules = {
     {"eternal.mp3", {"Eternal Might", "Eternal Shadow", "Eternal Earth", "Eternal Fire", "Eternal Water", "Eternal Air", "Eternal Life", "Eternal Mana [PH]"}},
 };
 
+EventRules = {
+    {"time_to_roll.mp3", "START_LOOT_ROLL"},
+    {"achievement.mp3", "ACHIEVEMENT_EARNED"},
+    {"kul_att_man_va_bjuden.mp3", "PARTY_INVITE_REQUEST"},
+}
 
 
 -- ################################# IGNORE REST #################################
@@ -96,20 +101,39 @@ function PlayPartyInviteSound()
     PlaySoundFile(BasePath.."kul_att_man_va_bjuden.mp3");
 end
 
+function PlayEventSound(event)
+    local sound = ""
+    for i = 1, #EventRules do
+        if (EventRules[i][2] == event) then
+            sound = EventRules[i][1]
+        end
+    end
+
+    PlaySoundFile(BasePath..sound);
+end
+
 local itemFilter = CreateFrame("frame");
 itemFilter:RegisterEvent("Loot_Ready");
 itemFilter:SetScript("OnEvent", ItemFilter);
 
 
-local rollFilter = CreateFrame("frame");
-rollFilter:RegisterEvent("START_LOOT_ROLL");
-rollFilter:SetScript("OnEvent", PlayRollSound);
 
-local achievementFilter = CreateFrame("frame");
-achievementFilter:RegisterEvent("ACHIEVEMENT_EARNED");
-achievementFilter:SetScript("OnEvent", PlayAchievementSound);
+local eventFilter = CreateFrame("frame");
 
-local partyFilter = CreateFrame("frame");
-partyFilter:RegisterEvent("PARTY_INVITE_REQUEST");
-partyFilter:SetScript("OnEvent", PlayPartyInviteSound);
+for i = 1, #EventRules do
+    eventFilter:RegisterEvent(EventRules[i][2]);
+end
+
+eventFilter:SetScript("OnEvent", function(self, event)
+    message(event)
+    PlayEventSound(event)
+end);
+
+-- local achievementFilter = CreateFrame("frame");
+-- achievementFilter:RegisterEvent("ACHIEVEMENT_EARNED");
+-- achievementFilter:SetScript("OnEvent", PlayAchievementSound);
+
+-- local partyFilter = CreateFrame("frame");
+-- partyFilter:RegisterEvent("PARTY_INVITE_REQUEST");
+-- partyFilter:SetScript("OnEvent", PlayPartyInviteSound);
 
