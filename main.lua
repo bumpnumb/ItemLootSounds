@@ -88,6 +88,11 @@ function PlayRollSound()
     PlaySoundFile(BasePath.."time_to_roll.mp3");
 end
 
+function PlayAchievementSound()
+    PlaySoundFile(BasePath.."achievement.mp3");
+end
+
+
 local itemFilter = CreateFrame("frame");
 itemFilter:RegisterEvent("Loot_Ready");
 itemFilter:SetScript("OnEvent", ItemFilter);
@@ -96,3 +101,8 @@ itemFilter:SetScript("OnEvent", ItemFilter);
 local rollFilter = CreateFrame("frame");
 rollFilter:RegisterEvent("START_LOOT_ROLL");
 rollFilter:SetScript("OnEvent", PlayRollSound);
+
+local achievementFilter = CreateFrame("frame");
+achievementFilter:RegisterEvent("ACHIEVEMENT_EARNED");
+achievementFilter:SetScript("OnEvent", PlayAchievementSound);
+
