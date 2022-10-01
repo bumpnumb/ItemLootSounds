@@ -11,15 +11,15 @@ BasePath = "Interface\\Addons\\ItemLootSounds\\Sounds\\";
 -- 8 	WoWToken 	WoW Token 	
 
 QualityRules = {
+    "",
+    "",
+    "nya.wav",
     "tuturu.mp3",
-    "tuturu.mp3",
+    "pinnes.mp3",
     "Wow.mp3",
     "nyalong.mp3",
-    "Nani.mp3",
-    "",
-    "",
-    "",
-    ""
+    "nyalong.mp3",
+    "nyalong.mp3"
 };
 
 
@@ -34,9 +34,8 @@ QualityRules = {
 -- ItemRules always takes priority over QualityRules
 
 ItemRules = {
-    {"nya.wav", {"Small Dream Shard"}},
+    {"nya.wav", {"Small Dream Shard", "Lesser Cosmic Essence"}},
     {"tuturu.mp3", {"Frostweave Cloth", "Infinite Dust"}},
-    {"", {"Lesser Cosmic Essence"}}
 };
 
 local delay = 0
