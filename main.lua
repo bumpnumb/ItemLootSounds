@@ -27,7 +27,6 @@ function ItemFilter()
             end
         end
 
-
         local bestSound = BasePath..QualityRules[bestQuality]; -- will alyways proc
         if bestRule ~= 0 then
             bestSound = BasePath..ItemRules[bestRule][1];

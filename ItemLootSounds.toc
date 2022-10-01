@@ -3,4 +3,5 @@
 ## Author: Daniel Fennhagen
 ## Version: 0.1
 
+config.lua
 main.lua
