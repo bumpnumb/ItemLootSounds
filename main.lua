@@ -92,6 +92,9 @@ function PlayAchievementSound()
     PlaySoundFile(BasePath.."achievement.mp3");
 end
 
+function PlayPartyInviteSound()
+    PlaySoundFile(BasePath.."kul_att_man_va_bjuden.mp3");
+end
 
 local itemFilter = CreateFrame("frame");
 itemFilter:RegisterEvent("Loot_Ready");
@@ -105,4 +108,8 @@ rollFilter:SetScript("OnEvent", PlayRollSound);
 local achievementFilter = CreateFrame("frame");
 achievementFilter:RegisterEvent("ACHIEVEMENT_EARNED");
 achievementFilter:SetScript("OnEvent", PlayAchievementSound);
+
+local partyFilter = CreateFrame("frame");
+partyFilter:RegisterEvent("PARTY_INVITE_REQUEST");
+partyFilter:SetScript("OnEvent", PlayPartyInviteSound);
 
