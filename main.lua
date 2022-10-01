@@ -122,8 +122,6 @@ function PlayRollSound(self, id)
     if GetTime() - delay >= DEBOUNCE_INTERVAL then
         delay = GetTime()
         local texture, name, count, quality = GetLootRollItemInfo(id);
-        print("Name: "..name);
-        print("Quality: "..tostring(name));
         quality = quality + 1; -- Quality is 0-indexed
 
         local bestRule = 0;
