@@ -44,7 +44,7 @@ ItemRules = {
 };
 
 EventRules = {
-    {"time_to_roll.mp3", "START_LOOT_ROLL"},
+    {"dags_att_förlora_rolls.mp3", "START_LOOT_ROLL"},
     {"achievement.mp3", "ACHIEVEMENT_EARNED"},
     {"kul_att_man_va_bjuden.mp3", "PARTY_INVITE_REQUEST"},
 }
