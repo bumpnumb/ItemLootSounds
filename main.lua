@@ -56,6 +56,8 @@ LootItemRules = {
 EventRules = {
     {"achievement.mp3", "ACHIEVEMENT_EARNED"},
     {"kul_att_man_va_bjuden.mp3", "PARTY_INVITE_REQUEST"},
+    {"fan_va_duktig_du_är.mp3", "PLAYER_LEVEL_UP"},
+    
 }
 
 
