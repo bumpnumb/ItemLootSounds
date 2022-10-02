@@ -120,31 +120,27 @@ end
 
 
 function PlayRollSound(id)
-    -- delay can be global, lets not spam audio
-    if GetTime() - delay >= DEBOUNCE_INTERVAL then
-        delay = GetTime()
-        local texture, name, count, quality = GetLootRollItemInfo(id);
-        quality = quality + 1; -- Quality is 0-indexed
+    local texture, name, count, quality = GetLootRollItemInfo(id);
+    quality = quality + 1; -- Quality is 0-indexed
 
-        print("Name: "..name..", Quality: "..tostring(quality)..", EventId: "..tostring(id))
+    print("Name: "..name..", Quality: "..tostring(quality)..", EventId: "..tostring(id))
 
-        local bestRule = 0;
+    local bestRule = 0;
 
-        for rule = 1, #RollItemRules do
-            for itemName = 1, #RollItemRules[2] do
-                if name == RollItemRules[rule][2][itemName] then
-                    bestRule = rule;
-                end
+    for rule = 1, #RollItemRules do
+        for itemName = 1, #RollItemRules[2] do
+            if name == RollItemRules[rule][2][itemName] then
+                bestRule = rule;
             end
         end
-
-        local bestSound = BasePath..RollQualityRules[quality]; -- will alyways proc
-        if bestRule ~= 0 then
-            bestSound = BasePath..RollItemRules[bestRule][1];
-        end
-
-        PlaySoundFile(bestSound, "master")
     end
+
+    local bestSound = BasePath..RollQualityRules[quality]; -- will alyways proc
+    if bestRule ~= 0 then
+        bestSound = BasePath..RollItemRules[bestRule][1];
+    end
+
+    PlaySoundFile(bestSound, "master")
 end
 
 
