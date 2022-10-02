@@ -166,7 +166,7 @@ lootFrame:SetScript("OnEvent", PlayLootSound);
 local rollFrame = CreateFrame("frame");
 rollFrame:RegisterEvent("START_LOOT_ROLL");
 rollFrame:SetScript("OnEvent", function(self, event, id)
-    PlayRollSound(id, "master");
+    PlayRollSound(id);
 end);
 
 
