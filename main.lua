@@ -56,7 +56,7 @@ LootItemRules = {
 EventRules = {
     {"achievement.mp3", "ACHIEVEMENT_EARNED"},
     {"kul_att_man_va_bjuden.mp3", "PARTY_INVITE_REQUEST"},
-    {"fan_va_duktig_du_är.mp3", "PLAYER_LEVEL_UP"},
+    {"fan_va_duktig_du_ar.mp3", "PLAYER_LEVEL_UP"},
     
 }
 
@@ -67,11 +67,11 @@ EventRules = {
 RollQualityRules = {
     "",
     "",
-    "kul_att_man_va_bjuden.mp3",
-    "kul_att_man_va_bjuden.mp3",
-    "kul_att_man_va_bjuden.mp3",
-    "kul_att_man_va_bjuden.mp3",
-    "kul_att_man_va_bjuden.mp3",
+    "rap_vafan.mp3",
+    "dags_att_forlora_rolls.mp3",
+    "håll_i_mig_forfan.mp3",
+    "korka_up_nu_dani.mp3",
+    "ateru.mp3",
     "kul_att_man_va_bjuden.mp3",
     "kul_att_man_va_bjuden.mp3"
 };
