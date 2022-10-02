@@ -67,13 +67,13 @@ EventRules = {
 RollQualityRules = {
     "",
     "",
-    "dags_att_förlora_rolls.mp3",
-    "dags_att_förlora_rolls.mp3",
-    "dags_att_förlora_rolls.mp3",
-    "dags_att_förlora_rolls.mp3",
-    "dags_att_förlora_rolls.mp3",
-    "dags_att_förlora_rolls.mp3",
-    "dags_att_förlora_rolls.mp3"
+    "kul_att_man_va_bjuden.mp3",
+    "kul_att_man_va_bjuden.mp3",
+    "kul_att_man_va_bjuden.mp3",
+    "kul_att_man_va_bjuden.mp3",
+    "kul_att_man_va_bjuden.mp3",
+    "kul_att_man_va_bjuden.mp3",
+    "kul_att_man_va_bjuden.mp3"
 };
 RollItemRules = {
     {"", {"Small Dream Shard"}},
@@ -120,7 +120,6 @@ end
 
 
 function PlayRollSound(id)
-    print("I am a function")
     local texture, name, count, quality = GetLootRollItemInfo(id);
 
     print("Name: "..name..", Quality: "..tostring(quality)..", EventId: "..tostring(id))
@@ -163,7 +162,6 @@ local rollFrame = CreateFrame("frame");
 rollFrame:RegisterEvent("START_LOOT_ROLL");
 rollFrame:SetScript("OnEvent", function(self, event, id)
     PlayRollSound(id)
-    print("Event: "..event..", ID: "..tostring(id))
 end);
 
 
@@ -172,7 +170,7 @@ local eventFilter = CreateFrame("frame");
 for i = 1, #EventRules do
     eventFilter:RegisterEvent(EventRules[i][2]);
 end
-eventFilter:SetScript("OnEvent", function(self, event, id) PlayEventSound(event) end);
+eventFilter:SetScript("OnEvent", function(self, event) PlayEventSound(event) end);
 
 -- local interfaceLoader = CreateFrame("Frame")
 -- interfaceLoader:RegisterEvent("ADDON_LOADED")
