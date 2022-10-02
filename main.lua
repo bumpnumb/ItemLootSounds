@@ -126,6 +126,8 @@ function PlayRollSound(id)
         local texture, name, count, quality = GetLootRollItemInfo(id);
         quality = quality + 1; -- Quality is 0-indexed
 
+        print("Name: "..name..", Quality: "..tostring(quality)..", EventId: "..tostring(id))
+
         local bestRule = 0;
 
         for rule = 1, #RollItemRules do
