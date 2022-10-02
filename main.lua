@@ -101,7 +101,7 @@ function PlayLootSound()
             end
 
             for rule = 1, #LootItemRules do
-                for itemName = 1, #LootItemRules[2] do
+                for itemName = 1, #LootItemRules[rule][2] do
                     if itemInfo.item == LootItemRules[rule][2][itemName] then
                         bestRule = rule;
                     end
@@ -120,22 +120,22 @@ end
 
 
 function PlayRollSound(id)
+    print("I am a function")
     local texture, name, count, quality = GetLootRollItemInfo(id);
-    quality = quality + 1; -- Quality is 0-indexed
 
     print("Name: "..name..", Quality: "..tostring(quality)..", EventId: "..tostring(id))
 
     local bestRule = 0;
 
     for rule = 1, #RollItemRules do
-        for itemName = 1, #RollItemRules[2] do
+        for itemName = 1, #RollItemRules[rule][2] do
             if name == RollItemRules[rule][2][itemName] then
                 bestRule = rule;
             end
         end
     end
 
-    local bestSound = BasePath..RollQualityRules[quality]; -- will alyways proc
+    local bestSound = BasePath..RollQualityRules[quality + 1]; -- will alyways proc
     if bestRule ~= 0 then
         bestSound = BasePath..RollItemRules[bestRule][1];
     end
@@ -162,7 +162,7 @@ lootFrame:SetScript("OnEvent", PlayLootSound);
 local rollFrame = CreateFrame("frame");
 rollFrame:RegisterEvent("START_LOOT_ROLL");
 rollFrame:SetScript("OnEvent", function(self, event, id)
-    PlayRollSound(id) 
+    PlayRollSound(id)
     print("Event: "..event..", ID: "..tostring(id))
 end);
 
@@ -185,5 +185,3 @@ eventFilter:SetScript("OnEvent", function(self, event, id) PlayEventSound(event)
 
 --     InterfaceOptions_AddCategory(self.panel)
 -- end
-
-
