@@ -119,7 +119,7 @@ function PlayLootSound()
 end
 
 
-function PlayRollSound(id)
+local function PlayRollSound(self, event, id)
     -- delay can be global, lets not spam audio
     if GetTime() - delay >= DEBOUNCE_INTERVAL then
         delay = GetTime()
@@ -148,7 +148,7 @@ function PlayRollSound(id)
 end
 
 
-function PlayEventSound(event)
+local function PlayEventSound(self, event)
     local sound = ""
     for i = 1, #EventRules do
         if (EventRules[i][2] == event) then
@@ -165,9 +165,7 @@ lootFrame:SetScript("OnEvent", PlayLootSound);
 
 local rollFrame = CreateFrame("frame");
 rollFrame:RegisterEvent("START_LOOT_ROLL");
-rollFrame:SetScript("OnEvent", function(self, event, id)
-    PlayRollSound(id);
-end);
+rollFrame:SetScript("OnEvent", PlayRollSound);
 
 
 local eventFilter = CreateFrame("frame");
@@ -175,9 +173,7 @@ local eventFilter = CreateFrame("frame");
 for i = 1, #EventRules do
     eventFilter:RegisterEvent(EventRules[i][2]);
 end
-eventFilter:SetScript("OnEvent", function(self, event)
-    PlayEventSound(event);
-end);
+eventFilter:SetScript("OnEvent", PlayEventSound);
 
 -- local interfaceLoader = CreateFrame("Frame")
 -- interfaceLoader:RegisterEvent("ADDON_LOADED")
