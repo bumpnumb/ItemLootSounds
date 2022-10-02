@@ -84,6 +84,11 @@ RollItemRules = {
 
 local delay = 0
 local DEBOUNCE_INTERVAL = 0.3
+local soundDelay = 0;
+local awaitCorrectSoundDuration = 0.3;
+local lootSound = "";
+
+
 
 function PlayLootSound()
     if GetTime() - delay >= DEBOUNCE_INTERVAL then
@@ -114,7 +119,8 @@ function PlayLootSound()
             bestSound = BasePath..LootItemRules[bestRule][1];
         end
 
-        PlaySoundFile(bestSound, "master")
+        lootSound = bestSound
+        -- PlaySoundFile(bestSound, "master")
     end
 end
 
@@ -139,7 +145,8 @@ function PlayRollSound(id)
         bestSound = BasePath..RollItemRules[bestRule][1];
     end
 
-    PlaySoundFile(bestSound, "master")
+    lootSound = bestSound
+    -- PlaySoundFile(bestSound, "master")
 end
 
 
@@ -154,6 +161,17 @@ function PlayEventSound(event)
     PlaySoundFile(BasePath..sound, "master");
 end
 
+
+
+function PlaySoundDelayed()
+    soundDelay = GetTime()
+    repeat until( GetTime() - soundDelay >= awaitCorrectSoundDuration )
+
+    PlaySoundFile(lootSound, "master");
+    lootSound = "";
+end
+
+
 local lootFrame = CreateFrame("frame");
 lootFrame:RegisterEvent("Loot_Ready");
 lootFrame:SetScript("OnEvent", PlayLootSound);
@@ -163,6 +181,12 @@ rollFrame:RegisterEvent("START_LOOT_ROLL");
 rollFrame:SetScript("OnEvent", function(self, event, id)
     PlayRollSound(id)
 end);
+
+local soundFrame = CreateFrame("frame");
+soundFrame:RegisterEvent("Loot_Ready");
+soundFrame:RegisterEvent("START_LOOT_ROLL");
+soundFrame:SetScript("OnEvent", PlaySoundDelayed);
+
 
 
 local eventFilter = CreateFrame("frame");
